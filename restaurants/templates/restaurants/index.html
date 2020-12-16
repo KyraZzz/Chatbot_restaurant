@@ -1,0 +1,38 @@
+{% extends 'base.html' %} {% block content %}
+<table class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>URL</th>
+      <th>Review Count</th>
+      <th>Rating</th>
+      <th>Price</th>
+      <th>Location</th>
+      <th>City</th>
+      <th>ZIP code</th>
+      <th>Country</th>
+      <th>State</th>
+      <th>Phone</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for info in infos %}
+    <tr>
+      <td>
+        <a href="{% url 'restaurants_detail' info.id %}">{{info.name}}</a>
+      </td>
+      <td>{{info.url}}</td>
+      <td>{{info.review_count}}</td>
+      <td>{{info.rating}}</td>
+      <td>{{info.price}}</td>
+      <td>{{info.location}}</td>
+      <td>{{info.city}}</td>
+      <td>{{info.zip_code}}</td>
+      <td>{{info.country}}</td>
+      <td>{{info.state}}</td>
+      <td>{{info.phone}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
