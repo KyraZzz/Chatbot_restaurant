@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+
+<!--Replace the contents inside the content block for this webpage-->
+{% block content %}
+<style>
+  .division {
+    border: 2px;
+    margin: 25px;
+    padding: 30px;
+  }
+</style>
+<div class="division">
+  <div class="badge bg-primary fs-6" style="width: device-width/2">
+    {% for i in history %} {{i}} <br />{% endfor %}
+  </div>
+  <br />
+  <div>
+    <div class="badge bg-primary text-wrap fs-3" style="width: device-width/2">
+      {{value}}
+    </div>
+    {% if link != ""%}
+    <div>
+      <table class="table table-bordered table-hover">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Review Count</th>
+            <th>Rating</th>
+            <th>Price</th>
+            <th>Location</th>
+            <th>City</th>
+            <th>ZIP code</th>
+            <th>Country</th>
+            <th>State</th>
+            <th>Phone</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <a href="{{link}}" target="_blank">{{info.name}}</a>
+            </td>
+            <td>{{info.review_count}}</td>
+            <td>{{info.rating}}</td>
+            <td>{{info.price}}</td>
+            <td>{{info.location}}</td>
+            <td>{{info.city}}</td>
+            <td>{{info.zip_code}}</td>
+            <td>{{info.country}}</td>
+            <td>{{info.state}}</td>
+            <td>{{info.phone}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    {% endif %}
+  </div>
+  <br />
+  <form action="#" method="GET">
+    {% csrf_token %}
+    <div class="form-group">
+      <label>Chat with the bot:</label>
+      <textarea
+        class="form-control"
+        id="exampleFormControlTextarea1"
+        rows="3"
+        name="user_text"
+      ></textarea>
+    </div>
+    <br />
+    <button
+      type="submit"
+      class="btn btn-primary"
+      value="Click"
+      name="print_btn"
+    >
+      Submit
+    </button>
+  </form>
+</div>
+{% endblock %}
