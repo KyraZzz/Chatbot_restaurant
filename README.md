@@ -7,9 +7,13 @@
 
 ## Targets:
 [1. Free chatting](#freeChatting)
+
 [2. Meal suggestion](#mealSuggestion)
+
 [3. Restaurant information retrieval](#info)
+
 [4. Daily to-do list](#toDo)
+
 [5. Google search api](#googleSearch)
 
 ## Development process:
