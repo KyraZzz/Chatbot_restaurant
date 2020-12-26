@@ -6,26 +6,26 @@
 4. After reading the paper [Stanford - overview of the dialogue system](https://www.notion.so/Read-research-paper-get-an-overview-of-the-dialogue-system-b8e85e95d4a542bc9483e1898224f7b3#5f080da6289748ee847248bfe35c6b8f), 
 
 ## Targets:
-1. [Free chatting](#freeChatting)
-2. Meal suggestion
-3. Restaurant information retrieval
-4. Daily to-do list
-5. Google search api
+[1. Free chatting](#freeChatting)
+[2. Meal suggestion](#mealSuggestion)
+[3. Restaurant information retrieval](#info)
+[4. Daily to-do list](#toDo)
+[5. Google search api](#googleSearch)
 
 ## Development process:
 ### 1.Free chatting <a name="freeChatting"></a>
 #### 1.1 
 
-### 2.Meal suggestion
+### 2.Meal suggestion <a name="mealSuggestion"></a>
 
 
-### 3.Restaurant information retrieval
+### 3.Restaurant information retrieval <a name="info"></a>
 
 
-### 4.Daily to-do list
+### 4.Daily to-do list <a name="toDo"></a>
 
 
-### 5.Google search api
+### 5.Google search api <a name="googleSearch"></a>
 
 
 
