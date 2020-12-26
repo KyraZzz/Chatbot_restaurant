@@ -17,7 +17,7 @@
 ## Development process:
 ## 1.Meal suggestion & Free chatting <a name="freeChatting"></a>
 ### 1.1 Data collection
-In order to avoid using pattern matching and manually typing up all the logics for the dialogues between chatbot and user, I attempted to train the chatbot via machine learning. The machine learning algorithm I have picked is called CNN (central neural network). I will explain the detailed algorithm through codes.
+In order to avoid using pattern matching and manually typing up all the logics for the dialogues between chatbot and user, I attempted to train the chatbot via machine learning. The machine learning algorithm I have picked is called Feed Forward Neural Net model. I will explain the detailed algorithm through codes.
 
 Firstly, we have to collect some data for training and I found a dataset - [The intent classification dataset from Kaggle](https://www.kaggle.com/elvinagammed/chatbots-intent-recognition-dataset) and add more own intent pattern and responses for the `meal suggestion` intent as follows:
 ``` python
@@ -104,7 +104,10 @@ For each sentence in the `docs_x` training dataset, we tokenised and normalised 
 ```
 This process is called producing `a bag of words`. At the same time, we have to keep track of the label(or tag) for each sentence, so using the one-hot method, the intent `meal suggestion` becomes `[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0]`
 
-After getting the bags of words, we are going to train the dataset onto a CNN model 
+After getting the bags of words, we are going to train the dataset onto a Feed Forward Neural Net model:
+![Feed Forward Neural Net](https://github.com/KyraZzz/Chatbot_restaurant/blob/main/model.png)
+The sentence has been pre-processed and converted into a bag of words, then it is fed into 2 hidden layers.
+
 
 ``` python
 training = np.array(training)
