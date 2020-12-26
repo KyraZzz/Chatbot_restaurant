@@ -18,18 +18,30 @@
 
 ## Development process:
 ### 1.Free chatting <a name="freeChatting"></a>
-#### 1.1 
+#### 1.1 Data collection
+
+#### 1.2 Intent classification
+#### 1.3 Django backend server set-up
+#### 1.4 React frontend set-up
+#### 1.5 Connect backend with frontend
 
 ### 2.Meal suggestion <a name="mealSuggestion"></a>
+#### 2.1 React fronend logic
+#### 2.2 Django backend logic
 
 
 ### 3.Restaurant information retrieval <a name="info"></a>
-
+#### 3.1 React fronend logic
+#### 3.2 Django backend logic
 
 ### 4.Daily to-do list <a name="toDo"></a>
+#### 4.1 React fronend logic
+#### 4.2 Django backend logic
 
 
 ### 5.Google search api <a name="googleSearch"></a>
+#### 5.1 React fronend logic
+#### 5.2 Django backend logic
 
 
 
