@@ -15,8 +15,8 @@
 [4. Google search api](#googleSearch)
 
 ## Development process:
-### 1.Meal suggestion & Free chatting <a name="freeChatting"></a>
-#### 1.1 Data collection
+## 1.Meal suggestion & Free chatting <a name="freeChatting"></a>
+### 1.1 Data collection
 In order to avoid using pattern matching and manually typing up all the logics for the dialogues between chatbot and user, I attempted to train the chatbot via machine learning. The machine learning algorithm I have picked is called CNN (central neural network). I will explain the detailed algorithm through codes.
 
 Firstly, we have to collect some data for training and I found a dataset - [The intent classification dataset from Kaggle](https://www.kaggle.com/elvinagammed/chatbots-intent-recognition-dataset) and add more own intent pattern and responses for the `meal suggestion` intent as follows:
@@ -31,12 +31,12 @@ Firstly, we have to collect some data for training and I found a dataset - [The 
         }
 ```
 
-#### 1.2 Intent classification
+### 1.2 Intent classification
 After getting an input text from the user, we would like to classify this user input into one of the 18 intents. Each of the intents has a non-empty `pattern list` and a non-empty `response list`, despite the `meal suggestion` intent which only has a `pattern list` and an empty `response list`. The reason for an empty `response list` is that this `meal suggestion` intent has two information slots required (i.e., `category` and `price`) from the user and a single text response is not sufficient, we have to introduce some state changes to fulfil these requirements.
 
 I learnt the basic CNN model from a Youtube video: [Explainining NLP basics](https://www.notion.so/Week-4-report-2d30399c959549e5a28ec2d5e336df9d#5c2b3aae97fc4cb8ad20d5130ce182ad). Here is the detailed procedure for intent classification:
 
-##### 1.2.1 Tokenise the words:
+#### 1.2.1 Tokenise the words:
 Data processing prefers numbers rather than characters because vectorised thinking is more efficient and vectors are constructed using numbers. Hence for each pattern in each intent, we tokenize the words and find all the unique words in our patterns.
 
 ```python
@@ -65,7 +65,7 @@ words = sorted(list(set(words)))
 labels = sorted(labels)
 ```
 
-##### 1.2.2 Word normalisation: 
+#### 1.2.2 Word normalisation: 
  We first find the root of a lowercase word using the `LancasterStemmer` from the `nltk(Natural Language Tool Kit)` library. For instance, the common root for `playing, plays and play` is `play`. In that way, we can normalise the texts into a root form. In addition, all the punctuations are excluded at the end.
 
 ```python
@@ -130,23 +130,23 @@ with open("./data.pickle", "wb") as f:
     pickle.dump((words, labels, training, output), f)
 ```
 
-#### 1.3 Django backend server set-up
-#### 1.4 React frontend set-up
-#### 1.5 Connect backend with frontend
+### 1.3 Django backend server set-up
+### 1.4 React frontend set-up
+### 1.5 Connect backend with frontend
 
 
-### 2.Restaurant information retrieval <a name="info"></a>
-#### 2.1 React fronend logic
-#### 2.2 Django backend logic
+## 2.Restaurant information retrieval <a name="info"></a>
+### 2.1 React fronend logic
+### 2.2 Django backend logic
 
-### 3.Daily to-do list <a name="toDo"></a>
-#### 3.1 React fronend logic
-#### 3.2 Django backend logic
+## 3.Daily to-do list <a name="toDo"></a>
+### 3.1 React fronend logic
+### 3.2 Django backend logic
 
 
-### 4.Google search api <a name="googleSearch"></a>
-#### 4.1 React fronend logic
-#### 4.2 Django backend logic
+## 4.Google search api <a name="googleSearch"></a>
+### 4.1 React fronend logic
+### 4.2 Django backend logic
 
 
 
