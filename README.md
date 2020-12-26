@@ -34,7 +34,7 @@ Firstly, we have to collect some data for training and I found a dataset - [The 
 ### 1.2 Intent classification
 After getting an input text from the user, we would like to classify this user input into one of the 18 intents. Each of the intents has a non-empty `pattern list` and a non-empty `response list`, despite the `meal suggestion` intent which only has a `pattern list` and an empty `response list`. The reason for an empty `response list` is that this `meal suggestion` intent has two information slots required (i.e., `category` and `price`) from the user and a single text response is not sufficient, we have to introduce some state changes to fulfil these requirements.
 
-I learnt the basic CNN model from a Youtube video: [Explainining NLP basics](https://www.notion.so/Week-4-report-2d30399c959549e5a28ec2d5e336df9d#5c2b3aae97fc4cb8ad20d5130ce182ad). Here is the detailed procedure for intent classification:
+I learnt the basic `Feed Forward Neural Net model` mainly from a Youtube video: [Explainining NLP basics](https://www.notion.so/Week-4-report-2d30399c959549e5a28ec2d5e336df9d#5c2b3aae97fc4cb8ad20d5130ce182ad). Here is the detailed procedure for intent classification:
 
 #### 1.2.1 Tokenise the words:
 Data processing prefers numbers rather than characters because vectorised thinking is more efficient and vectors are constructed using numbers. Hence for each pattern in each intent, we tokenize the words and find all the unique words in our patterns.
@@ -134,7 +134,9 @@ with open("./data.pickle", "wb") as f:
 ```
 
 ### 1.3 Django backend server set-up
+As a default choice, we can 
 ### 1.4 React frontend set-up
+
 ### 1.5 Connect backend with frontend
 
 
