@@ -106,8 +106,7 @@ This process is called producing `a bag of words`. At the same time, we have to 
 
 After getting the bags of words, we are going to train the dataset onto a Feed Forward Neural Net model:
 ![Feed Forward Neural Net](https://github.com/KyraZzz/Chatbot_restaurant/blob/main/model.png)
-The sentence has been pre-processed and converted into a bag of words, then it is fed into 2 hidden layers.
-
+The sentence has been pre-processed and converted into a bag of words, then it is fed into 2 hidden layers. Each hidden layer calculates \\(weights \times input(x) + bias(b)\\) and an activation function. In our case `net = tflearn.fully_connected(net, 8)` means we have a hidden layer of 8 neurals, a default activation function of `linear`, a zero bias and weights generated from a truncated normal distribution(truncated values following a normal distribution with specified mean and standard deviation to prevent generating dead neurons). The output layer has an activation function called `softmax` which is used to generate a list of probabilities for each intent.
 
 ``` python
 training = np.array(training)
@@ -123,6 +122,7 @@ net = tflearn.regression(net)
 
 model = tflearn.DNN(net)
 ```
+![Softmax Activation Function](https://github.com/KyraZzz/Chatbot_restaurant/blob/main/softmax.jpeg)
 
 ``` python
 model.fit(training, output, n_epoch=1000, batch_size=8, show_metric=True)
