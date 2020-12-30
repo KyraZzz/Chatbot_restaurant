@@ -5,12 +5,19 @@ class ActionProvider {
       this.createClientMessage = createClientMessage;
     }
 
+    handleTodo = () => {
+        const message = this.createChatBotMessage("What's your TODO task?",{
+            widget:"todo",
+        })
+        this.updateChatbotState(message)
+    }
+
     commonResponse = (output) => {
         const greetingMessage = this.createChatBotMessage(output)
         this.updateChatbotState(greetingMessage)
     }
 
-    handleCategory = (posts) => {
+    handleCategory = () => {
         const message = this.createChatBotMessage(
            "What kind of food category do you prefer?",
            {
@@ -35,7 +42,7 @@ class ActionProvider {
          }))
     }
 
-    handleMealSuggestion = (option) => {
+    handleMealSuggestion = (choice) => {
         const message = this.createChatBotMessage(
             "Based on your preferences:",
             {
@@ -44,10 +51,45 @@ class ActionProvider {
          );
          this.setState((state) => ({
              ...state,
-             price: option.text,
+             price: choice.text,
              messages: [...state.messages,message],
-         }))
+         }));
         
+    }
+
+    handleInfo(){
+        const message = this.createChatBotMessage(
+            "Do you want to search by name or category?",
+            {
+                widget: "SearchChoice",
+            }
+         );
+         this.updateChatbotState(message)
+    }
+
+    handleName = () => {
+        const message = this.createChatBotMessage(
+            "Please select the restaurants you are interested in:",
+            {
+                widget: "RestName",
+            }
+         );
+         this.updateChatbotState(message)
+    }
+
+    handleConfirm = (choice) => {
+        const message = this.createChatBotMessage(
+            "Here is the infomation for the restaurant you have chosen:",
+            {
+                widget: "ShowChoice",
+            }
+         );
+         this.setState((state) => ({
+             ...state,
+             chosenRestText: choice.text,
+             chosenRestUrl: choice.url,
+             messages: [...state.messages,message],
+         }));
     }
 
     updateChatbotState(message){

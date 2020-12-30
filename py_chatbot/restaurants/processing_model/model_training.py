@@ -21,7 +21,7 @@ docs_y = []
 
 for intent in data["intents"]:
     for pattern in intent["patterns"]:
-        wrds = nltk.word_tokenize(pattern)
+        wrds = nltk.word_tokenize(pattern)  # list of tokens for each sentence
         words.extend(wrds)
         docs_x.append(wrds)
         docs_y.append(intent["tag"])
@@ -29,11 +29,13 @@ for intent in data["intents"]:
     if intent["tag"] not in labels:
         labels.append(intent["tag"])
 
-words = [stemmer.stem(w.lower()) for w in words if w != "?"]
+words = [stemmer.stem(w.lower())
+         for w in words if w not in ["?", ".", ",", "!"]]
 # remove duplicated words, sort to make it easier to work with
 words = sorted(list(set(words)))
 
 labels = sorted(labels)
+
 
 training = []
 output = []
@@ -43,7 +45,8 @@ out_empty = [0 for _ in range(len(labels))]
 
 for x, doc in enumerate(docs_x):
     bag = []
-    wrds = [stemmer.stem(w.lower()) for w in doc]
+    wrds = [stemmer.stem(w.lower())
+            for w in doc if w not in ["?", ".", ",", "!"]]
 
     for w in words:
         if w in wrds:
@@ -73,6 +76,7 @@ net = tflearn.fully_connected(net, len(output[0]), activation="softmax")
 net = tflearn.regression(net)
 
 model = tflearn.DNN(net)
+
 
 model.fit(training, output, n_epoch=1000, batch_size=8, show_metric=True)
 model.save("model.tflearn")

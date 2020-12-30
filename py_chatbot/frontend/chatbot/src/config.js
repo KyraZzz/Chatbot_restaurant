@@ -3,10 +3,13 @@ import { createChatBotMessage } from "react-chatbot-kit";
 import FindRestaurant from "./components/FindRestaurant/FindRestaurant";
 import FoodCategory from "./components/FoodCategory/FoodCategory";
 import ChattyBotAvatar from "./components/ChattyBotAvatar/ChattyBotAvatar";
+import Todo from "./components/Todo/Todo";
 import LearningOptions from "./components/LearningOptions/LearningOptions";
+import RestName from './components/RestName/RestName';
+import ShowChoice from './components/ShowChoice/ShowChoice';
 import PriceRange from './components/PriceRange/PriceRange';
 
-const config = {
+const config =  {
     botName: "ChattyBot",
     initialMessages: [createChatBotMessage("Hi, what can I help you?"),
 ],
@@ -25,17 +28,31 @@ const config = {
 
     state: {
       category: "",
-      price: ""
+      price: "",
+      todoList: [],
+      chosenRestText: "",
+      chosenRestUrl: "",
     },
 
     widgets: [
         {
-            widgetName: "learningOptions",
-            widgetFunc: (props) => <LearningOptions {...props} />,
+            widgetName: "todo",
+            widgetFunc: (props) => <Todo {...props} />,
             mapStateToProps: [
-              "category",
-              "price",
+              "todoList"
             ],
+        },
+        {
+          widgetName: "SearchChoice",
+          widgetFunc: (props) => <LearningOptions {...props} />, 
+          mapStateToProps: [
+            "chosenRestText",
+            "chosenRestUrl"
+          ],
+        },
+        {
+          widgetName: "RestName",
+          widgetFunc: (props) => <RestName {...props} />
         },
         {
           widgetName: "foodcategory",
@@ -172,7 +189,15 @@ const config = {
               "category",
               "price",
             ],
-          }    
+          },
+          {
+            widgetName: "ShowChoice",
+            widgetFunc: (props) => <ShowChoice {...props} />,
+            mapStateToProps: [
+              "chosenRestText",
+              "chosenRestUrl"
+            ],
+          }        
     ],
 }
 

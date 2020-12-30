@@ -10,6 +10,20 @@ import pickle
 from .meal_suggestion import request
 
 
+def bag_of_words(s, words):
+    bag = [0 for _ in range(len(words))]
+    stemmer = LancasterStemmer()
+    s_words = nltk.word_tokenize(s)
+    s_words = [stemmer.stem(word.lower()) for word in s_words]
+
+    for se in s_words:
+        for i, w in enumerate(words):
+            if w == se:
+                bag[i] = 1
+
+    return np.array(bag)
+
+
 def getPredictions(user_input):
 
     words, labels, training, output = pickle.load(
@@ -35,19 +49,6 @@ def getPredictions(user_input):
                   batch_size=8, show_metric=True)
         model.save("restaurants/processing_model/model.tflearn")
 
-    def bag_of_words(s, words):
-        bag = [0 for _ in range(len(words))]
-        stemmer = LancasterStemmer()
-        s_words = nltk.word_tokenize(s)
-        s_words = [stemmer.stem(word.lower()) for word in s_words]
-
-        for se in s_words:
-            for i, w in enumerate(words):
-                if w == se:
-                    bag[i] = 1
-
-        return np.array(bag)
-
     results = model.predict([bag_of_words(user_input, words)])[0]
     results_index = np.argmax(results)  # index of the greatest number
     tag = ""
@@ -57,7 +58,8 @@ def getPredictions(user_input):
             if tg['tag'] == tag:
                 responses = tg["responses"]
                 if responses != []:
-                    return (tag, random.choice(responses))
+                    return tag, random.choice(responses)
+                return tag, ""
 
     else:
-        return (tag, "I didn't get that, try again.")
+        return tag, "I didn't get that, try again."

@@ -18,8 +18,14 @@ class MessageParser {
 
     // const {data:posts} = await axios.get("http://127.0.0.1:8000/restaurants/frontend")
 
-    if (tag==="meal_suggestion"){
+    if (lowerCaseMessage === "todo"){
+      this.actionProvider.handleTodo();
+    }
+    else if (tag === "meal_suggestion"){
       this.actionProvider.handleCategory();
+    }
+    else if (tag === "restuarant_info"){
+      this.actionProvider.handleInfo();
     }
     else{
       this.actionProvider.commonResponse(output);

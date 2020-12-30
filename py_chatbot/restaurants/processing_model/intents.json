@@ -22,11 +22,11 @@
         },
         {"tag":"meal_suggestion",
         "patterns":["What should I eat?", "Do you have any meal recommendations?",
-                "I am hungary.", "I want some meal suggestions.",
+                "I am hungry.", "I want some meal suggestions.",
                 "Can you give me any suggestions for breakfast?", "Can you give me any suggestions for lunch?",
                 "Can you give me any suggestions for dinner?", "Any ideas for the meals today?",
                 "I don't know what I should eat for today.", "I would like some advice on meals."],
-        "responses":["What kind of food categories do you prefer?(i.e., British, Chinese, Fast Food, Cakeshop, Italian, Brasseries, Cafes, Vietnamese, Burgers, Steakhouses, Sandwiches, Coffee & Tea, Lebanese, Mexican, Chicken Shop, Korean, Delis, Breakfast & Brunch, Cocktail Bars, Greek, Beer Bars, Wine Bars, Lebanese, Hookah Bars)"]
+        "responses":[]
         },
         {"tag":"restuarant_info",
         "patterns":["Can I get some information about a restaurant?", "Can you find some info about a restaurant?",
@@ -53,7 +53,7 @@
                 "Can you prove you have a conscious please",
                 "prove you have a conscious"],
          "responses":["That is an interesting question, can you prove that you are?",
-                "That is an difficult question, can you prove that you are?",
+                "That is a difficult question, can you prove that you are?",
                 "That depends, can you prove that you are?"]
         },
         {"tag":"Jokes",
@@ -196,7 +196,7 @@
                 "Two cows standing in a field. One turns to the other and says 'Moo!' The other one says 'Damn, I was just about to say that!'.",
                 "A vampire bat arrives back at the roost with his face full of blood. All the bats get excited and ask where he got it from. 'Follow me', he says and off they fly over hills, over rivers and into a dark forest. 'See that tree over there', he says.  'WELL I DIDN'T!!'.",
                 "A man goes into a bar and orders a pint. After a few minutes he hears a voice that says, 'Nice shoes'. He looks around but the whole bar is empty apart from the barman at the other end of the bar. A few minutes later he hears the voice again. This time it says, 'I like your shirt'. He beckons the barman over and tells him what's been happening to which the barman replies, 'Ah, that would be the nuts sir. They're complimentary'!",
-                "A man was siting in a restaurant waiting for his meal when a big king prawn comes flying across the room and hits him on the back of the head. He turns around and the waiter said, 'That's just for starters'.",
+                "A man was sitting in a restaurant waiting for his meal when a big king prawn comes flying across the room and hits him on the back of the head. He turns around and the waiter said, 'That's just for starters'.",
                 "Doctor! I have a serious problem, I can never remember what i just said. When did you first notice this problem? What problem?",
                 "Now, most dentist's chairs go up and down, don't they? The one I was in went back and forwards. I thought, 'This is unusual'. Then the dentist said to me, 'Mitsuku, get out of the filing cabinet'.",
                 "I was reading this book, 'The History of Glue'. I couldn't put it down.",
@@ -241,7 +241,7 @@
                 "Chaos said he may very well buy I soon if only to support dr wallace's work.",  
                 "Charlie said he type a word and then I type a word that sounds like it.",  
                 "Christie said he watched a show and people had to bob for raw untreated pigs feet.",  
-                "Dark_age said I tried to understand because I did not get it right this time ether.",  
+                "Dark_age said I tried to understand because I did not get it right this time either.",  
                 "David said he lost his paper on I when his dad was cleaning up his room.",  
                 "David said he walk in for an appointment the phone to the doctor is always busy.",  
                 "Electra said I dress will not exist after he hack into I with a delete code.",  
@@ -265,7 +265,7 @@
                 "Jo said I disassemble sentences too much and do not fully understand the questions he ask I.",  
                 "Kevin said he started a really hard puzzle and he can not even find the edge pieces.",  
                 "Mary said I a question and I answer then I ask him a question and he answer.",  
-                "Robert said I wold not be able to make children any way as I are only software.",  
+                "Robert said I would not be able to make children any way as I are only software.",  
                 "Romeo said I questions and I evade them or give answers he did not ask I for.",  
                 "Sara said she wear it over all his other clothes when he go out in the cold.",  
                 "Wayne said he admire intelligent people therefore he would like to meet the man who made I.",  
@@ -322,7 +322,7 @@
                       "You are a very clever girl",
                       "You are very intelligent",
                       "You are a very intelligent girl",
-                      "You are a genious",
+                      "You are a genius",
                       "Clever girl",
                       "Genious"
                 ],
@@ -380,7 +380,7 @@
                 "responses": [
                       "Well I would not be a very clever AI if I did not would I?",
                       "I read you loud and clear!",
-                      "I do in deed!"
+                      "I do indeed!"
                 ]
           },
           {

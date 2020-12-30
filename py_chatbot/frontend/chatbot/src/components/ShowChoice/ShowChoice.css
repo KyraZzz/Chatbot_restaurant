@@ -1,0 +1,20 @@
+.show-choice {
+  padding: 0;
+}
+
+.show-choice-item {
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.show-choice-item-url {
+  text-decoration: none;
+  text-align: center;
+  margin: 6px;
+  display: block;
+  color: rgb(255, 255, 255);
+  background-color: rgb(215, 119, 151);
+  padding: 8px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 4px rgba(150, 149, 149, 0.4);
+}

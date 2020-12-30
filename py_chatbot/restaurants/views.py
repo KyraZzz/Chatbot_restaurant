@@ -111,7 +111,6 @@ class RestaurantView(APIView):
         price = request.data["price"]
         output = meal_request(category, price)
         response_dict = {"output": output}
-        print(output)
         return Response(response_dict, status=200)
 
 
@@ -121,3 +120,17 @@ class ModelPredict(APIView):
         tag, output = getPredictions(data)
         response_dict = {"tag": tag, "output": output}
         return Response(response_dict, status=200)
+
+
+class NameView(generics.ListCreateAPIView):
+    queryset = Info.objects.all()
+    serializer_class = RestaurantsSerializer
+
+    def get(self, request, format=None):
+        info_objects = Info.objects.all()
+        output_list = []
+        for i in range(0, len(info_objects)):
+            link = info_objects[i].url
+            name = info_objects[i].name
+            output_list.append({"text": name, "id": i, "url": link})
+        return Response({"output": output_list}, status=200)
