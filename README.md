@@ -133,6 +133,8 @@ with open("./data.pickle", "wb") as f:
     pickle.dump((words, labels, training, output), f)
 ```
 
+All the codes about model implementation is in the folder [processing_model](https://github.com/KyraZzz/Chatbot_restaurant/tree/main/py_chatbot/restaurants/processing_model).
+
 ### 1.3 Django backend server set-up
 As a default choice, we can 
 ### 1.4 React frontend set-up
