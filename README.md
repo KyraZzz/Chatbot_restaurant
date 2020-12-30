@@ -136,7 +136,60 @@ with open("./data.pickle", "wb") as f:
 All the codes about model implementation is in the folder [processing_model](https://github.com/KyraZzz/Chatbot_restaurant/tree/main/py_chatbot/restaurants/processing_model).
 
 ### 1.3 Django backend server set-up
-As a default choice, we can 
+I chose `Django` to manage the backend and `React` to display the frontend. In my project, the backend acts as a database manager and an incoming website request handler while the frontend mainly presents the contents for users. There are several important files at the backend, the first one is `models.py`. It is a file where we store the single, definite information about our database model, it contains the fields and essential behaviour of the data we are storing.
+
+""" python
+class Category(models.Model):
+    category_name = models.CharField(max_length=255, default=None)
+
+    def __str__(self):
+        return self.category_name
+
+class Info(models.Model):
+    # blank = False means required, null = true means database can be null
+    name = models.CharField(max_length=255, null=True, blank=False)
+    url = models.URLField(null=True, blank=True)
+    ...
+    category = models.ManyToManyField(Category, blank=True)
+
+    def __str__(self):
+        return self.name
+"""
+
+Each class attribute represents a field in the database table, and each class inherits from the `django.db.models.Models.`, hence Django provided us with an efficient database access API.
+
+Another important file is `views.py`. It contains multiple view functions which take a web request and return a web response. The range of the web response is not limited, you can return anything you like, in my project, I will mainly return responses and data from the backend to talk to the frontend. Before setting up the view function, let us consider what kind of web requests the project requires. We have to do an intent classification of the user input text and determine which intent the user input belongs to. If it is the `meal suggestion` service, we have to ask the users about their preferred food category and price range; if it is something else(at this stage), then we will simply pick a random response from that particular intent response list.
+
+Here is the view function for processing the user input text, where function `getPredictions()` is written to utilise the `model.predict()` function so that we can either get the intent with the highest probability(>0.7) or an empty tag which indicates that all of the probabilities of the intents are below 70%. The tag and the response text are then returned to the frontend using web response.
+"""python
+class ModelPredict(APIView):
+    def post(self, request, format=None):
+        data = request.data["data"]
+        tag, output = getPredictions(data)
+        response_dict = {"tag": tag, "output": output}
+        return Response(response_dict, status=200)
+
+# function getPredictions() in the file getPredictions.py
+def getPredictions(data):
+  ...
+  results = model.predict([bag_of_words(user_input, words)])[0]
+  results_index = np.argmax(results)  # index of the greatest number
+  tag = ""
+  if results[results_index] > 0.7:
+      tag = labels[results_index]
+      for tg in data["intents"]:
+          if tg['tag'] == tag:
+              responses = tg["responses"]
+              if responses != []:
+                  return tag, random.choice(responses)
+              return tag, ""
+
+    else:
+        return tag, "I didn't get that, try again."
+"""
+
+The third crucial file is the `urls.py`. It is an URL dispatcher that direct the user to the requested website.
+
 ### 1.4 React frontend set-up
 
 ### 1.5 Connect backend with frontend
