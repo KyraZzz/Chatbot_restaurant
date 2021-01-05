@@ -3,7 +3,6 @@
 1. Friends around me say it is always difficult for them to choose what to eat for lunch & dinner, so if a chatbot can give them some suggestions based on the categories of the food as well as the price range, that will be practically useful.
 2. Besides meal suggestion service, I also want to implement some other services such as restaurant information retrieval, daily to-do lists and free chatting.
 3. For the free-chatting part, I would like to try to use some basic machine learning models so that there is no need to manually type up all the patterns. If the chatbot has no idea what the user is talking about, we can implement a google search API so that at least we can give users some potentially useful ideas instead of a plain text "I don't get what you mean, try something else".
-4. After reading the paper [Stanford - overview of the dialogue system](https://www.notion.so/Read-research-paper-get-an-overview-of-the-dialogue-system-b8e85e95d4a542bc9483e1898224f7b3#5f080da6289748ee847248bfe35c6b8f), 
 
 ## Targets:
 [1. Meal suggestion & Free chatting](#freeChatting)
