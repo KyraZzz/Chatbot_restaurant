@@ -92,6 +92,20 @@ class ActionProvider {
          }));
     }
 
+    handleCow(num){
+        const message = this.createChatBotMessage(
+            "Happy New Year!! Ox is the zodiac sign for 2021 Chinese New Year. Here is a random Ox for you:",
+            {
+                widget: "OxPic",
+            }
+         );
+         this.setState((state) => ({
+            ...state,
+            num,
+            messages: [...state.messages,message],
+        }));
+    }
+
     updateChatbotState(message){
         this.setState(prevState => ({
             ...prevState, 

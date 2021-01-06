@@ -8,6 +8,7 @@ import LearningOptions from "./components/LearningOptions/LearningOptions";
 import RestName from './components/RestName/RestName';
 import ShowChoice from './components/ShowChoice/ShowChoice';
 import PriceRange from './components/PriceRange/PriceRange';
+import LinkList from './components/LinkList/LinkList';
 
 const config =  {
     botName: "ChattyBot",
@@ -32,6 +33,7 @@ const config =  {
       todoList: [],
       chosenRestText: "",
       chosenRestUrl: "",
+      num: 0,
     },
 
     widgets: [
@@ -197,7 +199,14 @@ const config =  {
               "chosenRestText",
               "chosenRestUrl"
             ],
-          }        
+          },
+          {
+            widgetName: "OxPic",
+            widgetFunc: (props) => <LinkList {...props} />,
+            mapStateToProps: [
+              "num"
+            ],
+        }      
     ],
 }
 

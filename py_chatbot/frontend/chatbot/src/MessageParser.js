@@ -21,6 +21,10 @@ class MessageParser {
     if (lowerCaseMessage === "todo"){
       this.actionProvider.handleTodo();
     }
+    else if (lowerCaseMessage === "happy new year"){
+      let num = Math.round(Math.random() * 10) % 5 + 1;
+      this.actionProvider.handleCow(num);
+    }
     else if (tag === "meal_suggestion"){
       this.actionProvider.handleCategory();
     }
