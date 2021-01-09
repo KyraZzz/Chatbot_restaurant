@@ -26,7 +26,7 @@ const LinkList = ({num}) => {
       url: displacement, 
       id: 5 }
   ];
-  const linkMarkup = ((options.filter(link => link.id === num).map((link) => (
+  const linkMarkup = ((options.filter(link => link.id === num[num.length-1]).map((link) => (
     <li key={link.id} className="link-list-item">
       <img
         src={link.url}

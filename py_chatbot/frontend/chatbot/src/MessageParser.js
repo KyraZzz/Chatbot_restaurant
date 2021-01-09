@@ -31,6 +31,12 @@ class MessageParser {
     else if (tag === "restuarant_info"){
       this.actionProvider.handleInfo();
     }
+    else if (tag === ""){
+      let url = settings.API_SERVER + '/restaurants/search';
+      let response = await axios.post(url, {"data":lowerCaseMessage});
+      const output = response.data["output"];
+      this.actionProvider.searchEngine(output);
+    }
     else{
       this.actionProvider.commonResponse(output);
     }

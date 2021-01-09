@@ -17,6 +17,17 @@ class ActionProvider {
         this.updateChatbotState(greetingMessage)
     }
 
+    searchEngine = (output) => {
+        const message = this.createChatBotMessage("I don't know the answer to your question, the giant Google brain may be helpful:",{
+            widget: "searchEngine",
+        })
+        this.setState((state) => ({
+            ...state,
+            searchRes: output,
+            messages: [...state.messages,message],
+        }))
+    }
+
     handleCategory = () => {
         const message = this.createChatBotMessage(
            "What kind of food category do you prefer?",
@@ -101,7 +112,7 @@ class ActionProvider {
          );
          this.setState((state) => ({
             ...state,
-            num,
+            num:[...state.num,num],
             messages: [...state.messages,message],
         }));
     }

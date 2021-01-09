@@ -9,6 +9,7 @@ import RestName from './components/RestName/RestName';
 import ShowChoice from './components/ShowChoice/ShowChoice';
 import PriceRange from './components/PriceRange/PriceRange';
 import LinkList from './components/LinkList/LinkList';
+import SearchEngine from './components/SearchEngine/SearchEngine';
 
 const config =  {
     botName: "ChattyBot",
@@ -33,7 +34,8 @@ const config =  {
       todoList: [],
       chosenRestText: "",
       chosenRestUrl: "",
-      num: 0,
+      num: [],
+      searchRes : []
     },
 
     widgets: [
@@ -42,6 +44,13 @@ const config =  {
             widgetFunc: (props) => <Todo {...props} />,
             mapStateToProps: [
               "todoList"
+            ],
+        },
+        {
+          widgetName: "searchEngine",
+            widgetFunc: (props) => <SearchEngine {...props} />,
+            mapStateToProps: [
+              "searchRes"
             ],
         },
         {

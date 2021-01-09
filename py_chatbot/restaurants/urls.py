@@ -17,7 +17,8 @@ urlpatterns = [
     path('chatbot', views.chatbot, name='restaurants_chatbot'),
     path('predict', views.ModelPredict.as_view(), name='predict_result'),
     path('fetch', views.RestaurantView.as_view(), name='fetch_restaurants'),
-    path('name', views.NameView.as_view(), name='name_restaurants')
+    path('name', views.NameView.as_view(), name='name_restaurants'),
+    path('search', views.SearchView.as_view(), name="search_engine_result")
 ]
 """
 urlpatterns += router.urls

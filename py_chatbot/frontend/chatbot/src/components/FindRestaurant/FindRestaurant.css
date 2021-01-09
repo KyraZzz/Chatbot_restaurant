@@ -16,11 +16,11 @@
 
 .link-list-item-url {
   text-decoration: none;
-  margin: 6px;
+  margin: 3px;
   display: block;
   color: #1d1d1d;
   background-color: #f1f1f1;
-  padding: 8px;
+  padding: 5px;
   border-radius: 3px;
   box-shadow: 2px 2px 4px rgba(150, 149, 149, 0.4);
 }

@@ -10,7 +10,7 @@ from rest_framework.mixins import (
     CreateModelMixin, ListModelMixin, RetrieveModelMixin, UpdateModelMixin
 )
 from .serializers import RestaurantsSerializer, CategorySerializer, ConversationSerializer
-
+from .googleSearch import searchResult
 
 # Create your views here.
 
@@ -134,3 +134,11 @@ class NameView(generics.ListCreateAPIView):
             name = info_objects[i].name
             output_list.append({"text": name, "id": i, "url": link})
         return Response({"output": output_list}, status=200)
+
+
+class SearchView(APIView):
+    def post(self, request, format=None):
+        data = request.data
+        output = searchResult(data)
+        response_dict = {"output": output}
+        return Response(response_dict, status=200)
