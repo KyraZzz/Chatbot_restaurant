@@ -1,6 +1,6 @@
 from django.http import HttpResponse, Http404
 from django.shortcuts import render, get_object_or_404
-from .models import Category, Info, Conversation
+from .models import Category, Info
 from .get_predictions import getPredictions
 from rest_framework import viewsets, generics, status
 from rest_framework.viewsets import GenericViewSet
@@ -9,7 +9,7 @@ from rest_framework.response import Response
 from rest_framework.mixins import (
     CreateModelMixin, ListModelMixin, RetrieveModelMixin, UpdateModelMixin
 )
-from .serializers import RestaurantsSerializer, CategorySerializer, ConversationSerializer
+from .serializers import RestaurantsSerializer, CategorySerializer
 from .googleSearch import searchResult
 
 # Create your views here.
@@ -59,7 +59,7 @@ def meal_request(category, price):
     return output_list
 
 
-def chatbot(request):
+""" def chatbot(request):
     output = ""
     site_user = request.session.get('site_user', 'Kyra')
     tag = request.session.get('tag', "")
@@ -103,6 +103,7 @@ def chatbot(request):
     # request.session.modified = True
 
     return render(request, 'restaurants/chatbot.html', context)
+ """
 
 
 class RestaurantView(APIView):

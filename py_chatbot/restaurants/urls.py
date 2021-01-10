@@ -14,7 +14,6 @@ router.register(r'frontend', views.RestaurantView,
 urlpatterns = [
     path('', views.index, name="restaurants_index"),
     path('<int:restaurant_id>', views.detail, name='restaurants_detail'),
-    path('chatbot', views.chatbot, name='restaurants_chatbot'),
     path('predict', views.ModelPredict.as_view(), name='predict_result'),
     path('fetch', views.RestaurantView.as_view(), name='fetch_restaurants'),
     path('name', views.NameView.as_view(), name='name_restaurants'),

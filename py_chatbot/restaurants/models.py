@@ -31,11 +31,3 @@ class Info(models.Model):
 
     def __str__(self):
         return self.name
-
-
-class Conversation(models.Model):
-    user_text = models.CharField(max_length=255)
-    # date_posted = models.DateTimeField(auto_now=False, auto_now_add=False)
-
-    def __str__(self):
-        return self.user_text

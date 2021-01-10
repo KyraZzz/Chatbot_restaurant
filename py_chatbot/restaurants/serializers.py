@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Category, Info, Conversation
+from .models import Category, Info
 
 
 class CategorySerializer(serializers.ModelSerializer):
@@ -13,9 +13,3 @@ class RestaurantsSerializer(serializers.ModelSerializer):
         model = Info
         fields = ("name", "url", "review_count", "rating", "price", "location",
                   "city", "zip_code", "country", "state", "phone", "category")
-
-
-class ConversationSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Conversation
-        fields = ("user_text")
